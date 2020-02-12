@@ -8,7 +8,7 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-16.04'
-  demands: 
+  demands:
   - npm
 
 variables:
@@ -21,7 +21,7 @@ steps:
     packageType: sdk
     version: 3.1.100
 
-- task: npm@1
+- task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
@@ -46,5 +46,5 @@ steps:
   displayName: 'Build the project - Release'
   inputs:
     command: 'build'
-    arguments: '--no-restore --configurationRelease'
+    arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
